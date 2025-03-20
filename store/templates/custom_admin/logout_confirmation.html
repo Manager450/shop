@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Logout</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 20px; margin: 10px; border: none; cursor: pointer; }
+        .confirm { background-color: red; color: white; }
+        .cancel { background-color: gray; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Are you sure you want to logout?</h2>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="confirm">Yes, Logout</button>
+        </form>
+        <a href="{% url 'admin_dashboard' %}"><button class="cancel">Cancel</button></a>
+    </div>
+</body>
+</html>
